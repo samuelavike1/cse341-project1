@@ -5,7 +5,7 @@ const {db_init} = require('./db');
 const port = process.env.SERVER_PORT || 3000;
 
 
-app.use(require('./src/routes/routes'));
+app.use(require('./src/routes/userRoutes'));
 
 
 async function startServer() {

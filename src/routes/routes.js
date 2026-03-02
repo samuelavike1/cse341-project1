@@ -3,10 +3,6 @@ const router = require("express").Router();
 
 router.get('/users', async (req, res) => {
     const users = await getAllUsers();
-    users.then((users) => {
-        res.header('Content-Type','application/json');
-        res.status(200).json(users);
-    })
     res.json(users);
 });
 

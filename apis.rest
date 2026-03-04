@@ -1,11 +1,11 @@
 ### Get all users
-GET https://cse341-project1-sczx.onrender.com/users HTTP/1.1
+GET https://cse341-project1-sczx.onrender.com/contacts HTTP/1.1
 Host: cse341-project1-sczx.onrender.com
 Accept: application/json
 
 
 
 ### Get a user by ID
-GET https://cse341-project1-sczx.onrender.com/users/59b99dc0cfa9a34dcd7885d0 HTTP/1.1
+GET https://cse341-project1-sczx.onrender.com/contacts/69a88733e66bf507ef1f3860 HTTP/1.1
 Host: cse341-project1-sczx.onrender.com
 Accept: application/json

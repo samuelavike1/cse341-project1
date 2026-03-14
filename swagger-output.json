@@ -1,0 +1,203 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CSE 341 Project 1 - CONTACTS API",
+    "description": "A simple API to manage contacts, allowing users to create, read, update, and delete contact information. This API is built using Node.js and Express, and it uses MongoDB for data storage.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "paths": {
+    "/contacts": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new contact",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Contact created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "64f1a2b3c4d5e6f7a8b9c0d1"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid fields"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "email",
+                  "favoriteColor",
+                  "birthday"
+                ],
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Doe"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "john.doe@email.com"
+                  },
+                  "favoriteColor": {
+                    "type": "string",
+                    "example": "blue"
+                  },
+                  "birthday": {
+                    "type": "string",
+                    "example": "1990-01-01"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a contact by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Contact ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contact updated successfully"
+          },
+          "400": {
+            "description": "Missing or invalid fields"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "email",
+                  "favoriteColor",
+                  "birthday"
+                ],
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Doe"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "john.doe@email.com"
+                  },
+                  "favoriteColor": {
+                    "type": "string",
+                    "example": "blue"
+                  },
+                  "birthday": {
+                    "type": "string",
+                    "example": "1990-01-01"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a contact by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Contact ID"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contact deleted successfully"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      }
+    }
+  }
+}

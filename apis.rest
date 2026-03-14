@@ -9,3 +9,35 @@ Accept: application/json
 GET https://cse341-project1-sczx.onrender.com/contacts/69a88733e66bf507ef1f3860 HTTP/1.1
 Host: cse341-project1-sczx.onrender.com
 Accept: application/json
+
+
+### Create a new user
+POST https://cse341-project1-sczx.onrender.com/contacts HTTP/1.1
+Host: cse341-project1-sczx.onrender.com
+Content-Type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john@email.com",
+    "favoriteColor": "blue",
+    "birthday": "1990-01-01"
+}
+
+
+### Update a user by ID
+PUT https://cse341-project1-sczx.onrender.com/contacts/69a88733e66bf507ef1f3860 HTTP/1.1
+Host: cse341-project1-sczx.onrender.com
+Content-Type: application/json
+
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane@email.com",
+    "favoriteColor": "green",
+    "birthday": "1990-01-01"
+}
+
+### Delete a user by ID
+DELETE https://cse341-project1-sczx.onrender.com/contacts/69a88733e66bf507ef1f3860 HTTP/1.1
+Host: cse341-project1-sczx.onrender.com
